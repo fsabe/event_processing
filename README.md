@@ -2,7 +2,11 @@
 
 ## Ambiente
 
-Para executar a aplicação é necessário o Ruby (versão 2.4.0 recomendada) com RubyGems e a gem Bundler, que é usada para gerenciar as demais dependências da aplicação.
+Para executar a aplicação é necessário o Ruby (versão 2.4.0 recomendada) com RubyGems e a gem Bundler, que é usada para gerenciar as demais dependências da aplicação. Para instalar estas execute o seguinte comando:
+
+```
+bundle install --path vendor
+```
 
 ## Execução
 
