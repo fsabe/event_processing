@@ -1,0 +1,15 @@
+#!/usr/bin/env ruby
+
+require "bundler"
+
+Bundler.require
+
+require_relative "../lib/server"
+
+server = Server.new
+
+at_exit do
+  server.force_flush
+end
+
+server.listen

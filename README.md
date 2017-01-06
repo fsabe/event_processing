@@ -16,3 +16,14 @@ bin/event_processor < examples/input.txt
 ```
 bin/event_processor examples/input.txt
 ```
+
+### Servidor
+
+Para executar o servidor pode-se utilizar o utilitário em `bin/server`. Isto fará com que seja iniciado um servidor que recebe os eventos através de requisições UDP na porta 3030. O servidor irá imprimir os conjuntos de agregações na saída padrão sempre que um intervalo determinado houver passado (medido a partir do timestamp dos eventos recebidos). Quando o servidor é encerrado, todas os eventos ainda não processados são agregados e os resultados impressos.
+
+```
+bin/server
+```
+```
+cat examples/input.txt | nc -u -w0 localhost 3030
+```
