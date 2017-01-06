@@ -19,27 +19,27 @@ class EventProcessor
 
   # Aggregate all events recorded since the last flush and return an AggregateSet for each period that has at least one recorded event.
   def flush
-    events_by_period = @events.group_by { |event| ((event.timestamp - @start) / @interval).to_i }
-
-    aggregate_sets = []
-
-    events_by_period.each_pair do |period, events|
-      aggregates_list = []
-
-      events
-        .group_by { |event| event.type }
-        .each_pair { |type, events|
-          aggregates_list << Aggregate.new(type, events.map(&:value))
-        }
-
-      period_start = @start + @interval * period
-      period_end = @start + @interval * (period + 1)
-
-      aggregate_sets << AggregateSet.new(aggregates_list, period_start, period_end)
-    end
+    aggregate_sets = aggregate_events_by_period(@events)
 
     @events = []
 
     aggregate_sets
+  end
+
+  private
+
+  def aggregate_events_by_period(events)
+    events_by_period = events.group_by { |event| ((event.timestamp - @start) / @interval).to_i }
+
+    events_by_period.map do |period_index, events|
+      aggregates = events
+        .group_by(&:type)
+        .map { |type, events| Aggregate.new(type, events.map(&:value)) }
+
+      period_start = @start + @interval * period_index
+      period_end = @start + @interval * (period_index + 1)
+
+      AggregateSet.new(aggregates, period_start, period_end)
+    end
   end
 end
