@@ -1,10 +1,10 @@
-require "aggregate"
-require "aggregate_set"
-require "event"
+require_relative "aggregate"
+require_relative "aggregate_set"
+require_relative "event"
 
 class EventProcessor
   # Initializes the EventProcessor to aggregate events every +interval+ seconds from the +start+ time.
-  def initialize(start=Time.parse("2017-01-01T00:00:00"), interval=60)
+  def initialize(start=Time.parse("2017-01-01T00:00:00Z"), interval=60)
     @events = []
     @start = start
     @interval = interval

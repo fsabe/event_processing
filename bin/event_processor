@@ -1,0 +1,11 @@
+#!/usr/bin/env ruby
+
+require "bundler"
+
+Bundler.require
+
+require_relative "../lib/cli"
+
+cli = CLI.new
+cli.record_events(ARGF)
+cli.output_aggregates

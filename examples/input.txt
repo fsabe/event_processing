@@ -1,0 +1,8 @@
+{ "type": "request_duration", "value": 10, "timestamp": "2017-01-03T15:53:01.494821Z", "tags": "company:1,sburbles:barf" }
+{ "type": "request_duration", "value": 20, "timestamp": "2017-01-03T15:53:05.494122Z", "tags": "company:2,sburbles:barf" }
+{ "type": "request_duration", "value": 30, "timestamp": "2017-01-03T15:53:17.494145Z", "tags": "company:3,sburbles:borf" }
+{ "type": "request_duration", "value": 40, "timestamp": "2017-01-03T15:53:42.000000Z", "tags": "company:1,sburbles:borf" }
+{ "type": "request_duration", "value": 10, "timestamp": "2017-01-03T15:54:01.494821Z", "tags": "company:1,sburbles:barf" }
+{ "type": "request_duration", "value": 20, "timestamp": "2017-01-03T15:54:05.494122Z", "tags": "company:2,sburbles:barf" }
+{ "type": "request_count", "value": 30, "timestamp": "2017-01-03T15:54:17.494145Z", "tags": "company:3,sburbles:borf" }
+{ "type": "request_count", "value": 40, "timestamp": "2017-01-03T15:54:42.000000Z", "tags": "company:1,sburbles:borf" }
